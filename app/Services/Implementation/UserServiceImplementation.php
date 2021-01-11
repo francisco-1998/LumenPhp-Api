@@ -15,7 +15,7 @@ class UserServiceImplementation implements IUserInterface
     }
 
     function getUsers(){
-
+        return $this->model->paginate();
     }
 
 
