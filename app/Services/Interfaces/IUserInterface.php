@@ -2,7 +2,7 @@
 
 namespace App\Services\Interfaces;
 
-interface IUser {
+interface IUserInterface {
     /**
      * @return array User
      */

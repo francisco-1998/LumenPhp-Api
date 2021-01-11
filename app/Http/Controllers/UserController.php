@@ -22,4 +22,12 @@ class UserController extends Controller
         $this->userServiceImp = $userService;
         $this->request = $req;
     }
+
+    function createUser(){
+        $response = response('', 201);
+        $this->userServiceImp->addUser($this->request->all());
+        return $response;
+    }
+
+
 }

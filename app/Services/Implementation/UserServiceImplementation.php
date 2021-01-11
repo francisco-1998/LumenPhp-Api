@@ -3,9 +3,10 @@
 namespace App\Services\Implementation;
 
 use App\Models\User;
-use App\Services\Interfaces\IUser;
+use App\Services\Interfaces\IUserInterface;
+use Illuminate\Support\Facades\Hash;
 
-class UserServiceImplementation implements IUser
+class UserServiceImplementation implements IUserInterface
 {
     private $model;
 
@@ -22,9 +23,13 @@ class UserServiceImplementation implements IUser
 
     }
 
-
-    function addUser(array $user){
-
+    /**
+     * Crea un usuario en el sistema
+     */
+    function addUser(array $user)
+    {
+        $user['password'] = Hash::make($user['password']);
+        $this->model->create($user);
     }
 
 
